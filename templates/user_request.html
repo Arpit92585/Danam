@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Request Details</title>
+</head>
+<body>
+    <h2>User Request Details</h2>
+    <p>User: {{ user_request.user }}</p>
+    <p>Request Type: {{ user_request.request_type }}</p>
+    <p>Location: {{ user_request.location }}</p>
+    <p>Status: {{ user_request.status }}</p>
+    
+    {% if assigned_volunteer %}
+        <h3>Assigned Volunteer</h3>
+        <p>User: {{ user_request.user }}</p>
+<p>Request Type: {{ user_request.request_type }}</p>
+<p>Location: {{ user_request.location }}</p>
+<p>Status: {{ user_request.status }}</p>
+    {% else %}
+        <p>No volunteer assigned yet.</p>
+    {% endif %}
+    
+    <a href="{{ url_for('ngo_dashboard') }}">Back to NGO Dashboard</a>
+</body>
+</html>

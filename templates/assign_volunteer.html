@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* Assign Volunteer styling */
+.assign-volunteer-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #5550ab;
+}
+
+.user-request-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+}
+
+.assign-volunteer-form {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: #5550ab;
+    outline: none;
+}
+
+.form-submit {
+    background: #5550ab;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-submit:hover {
+    background: #45a049;
+}
+
+.back-dashboard-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #5550ab;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-dashboard-link:hover {
+    color: #45a049;
+}
+
+</style>
+<h1 class="assign-volunteer-title">Assign Volunteer to Request</h1>
+<h2 class="user-request-title">User Request: {{ request.user }}</h2>
+<form method="POST" class="assign-volunteer-form">
+    <div class="form-group">
+        <label for="volunteer" class="form-label">Select a Volunteer:</label>
+        <select name="volunteer_id" id="volunteer" class="form-select" required>
+            <option value="">--Select a Volunteer--</option>
+            {% for volunteer in volunteers %}
+                <option value="{{ volunteer.id }}">{{ volunteer.name }} - {{ volunteer.location }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="form-submit">Assign Volunteer</button>
+    </div>
+</form>
+<a href="{{ url_for('ngo_dashboard') }}" class="back-dashboard-link">Back to Dashboard</a>
+{% endblock %}

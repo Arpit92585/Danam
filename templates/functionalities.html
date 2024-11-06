@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Functionalities</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f5fb;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: #453f93;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid white;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: white;
+            color: #453f93;
+        }
+        
+        /* Header title styling */
+        .header-title {
+            font-size: 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            color: #453f93;
+        }
+        
+        /* Functionalities main section styling */
+        .functionalities-main {
+            text-align: center;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .functionalities-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #453f93;
+        }
+        .functionalities-list {
+            list-style-type: none;
+            padding: 0;
+            color: #5550abd5;
+        }
+        .functionalities-list li {
+            margin: 1rem 0;
+        }
+        
+        /* Link styling */
+        .functionality-link {
+            text-decoration: none;
+            color: #453f93;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .functionality-link:hover {
+            color: #45a049;
+        }
+        
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #f4f5fb;
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="header-title">Functionalities Overview</h2>
+        <nav class="navbar">
+            <a href="{{ url_for('homepage') }}">Home</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('ngo_dashboard') }}">NGO Dashboard</a>
+            <a href="{{ url_for('available_volunteers') }}">View Available Volunteers</a>
+            <a href="{{ url_for('add_volunteer') }}">Add Volunteer</a>
+            <a href="{{ url_for('functionalities') }}">View Functionalities</a>
+        </nav>
+    </header>
+    <main class="functionalities-main">
+        <h3 class="functionalities-title">Here are the functionalities available:</h3>
+        <ul class="functionalities-list">
+            <li><a href="{{ url_for('available_volunteers') }}" class="functionality-link">View Available Volunteers</a></li>
+            <li><a href="{{ url_for('add_volunteer') }}" class="functionality-link">Add a New Volunteer</a></li>
+            <li><a href="{{ url_for('assign_volunteer', request_id=1) }}" class="functionality-link">Assign a Volunteer to a User Request</a></li>
+            <li><a href="{{ url_for('user_request', request_id=1) }}" class="functionality-link">View User Request Details</a></li>
+            <!-- Additional functionality links -->
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Danam. All rights reserved.</p>
+    </footer>
+</body>
+</html>

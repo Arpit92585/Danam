@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Request Type</th>
+            <th>Location</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for request in requests %}
+        <tr>
+            <td>{{ request.user }}</td>
+            <td>{{ request.request_type }}</td>
+            <td>{{ request.location }}</td>
+            <td>{{ request.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

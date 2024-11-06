@@ -1,0 +1,162 @@
+
+
+{% block content %}
+<style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        header {
+            background-color: var(--accent);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        .btn-nav{
+            padding: 12px;
+            transition: 0.3s;
+        }
+        .btn-nav:hover{
+            padding:  12px;
+            background-color: #5550abd5;
+            color: white;
+            border-radius: 12px;
+
+        }
+.volunteer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.volunteer-table th,
+.volunteer-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.volunteer-table th {
+    background: #5550abd5;
+    color: white;
+    font-weight: bold;
+}
+
+.volunteer-table tr:hover {
+    background: #f1f1f1;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #5550abd5;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center; /* Center the link */
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.header {
+    text-align: center; /* Center the header */
+    margin-bottom: 1.5rem; /* Spacing below header */
+}
+
+.title {
+    font-size: 2rem; /* Increase title font size */
+    color: #5550abd5; /* Title color */
+}
+
+.main-content {
+    height: 80%;
+    max-width: 800px; /* Set max width for content */
+    margin: 0 auto; /* Center the content */
+    padding: 0 1rem; /* Add some padding */
+}
+
+.footer {
+    text-align: center; /* Center footer text */
+    margin-top: 2rem; /* Spacing above footer */
+    color: #555; /* Footer text color */
+}
+
+</style>
+<header>
+    <nav class="container">
+        <a href="#" class="logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="16" fill="#5450ab"/>
+                <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24" stroke="white" stroke-width="2"/>
+                <path d="M16 24C13.7909 24 12 22.2091 12 20C12 17.7909 13.7909 16 16 16" stroke="white" stroke-width="2"/>
+            </svg>
+            <span style="margin-left: 0.5rem;">Danam</span>
+        </a>
+        <div>
+            <nav class="nav">
+                <a class="btn-nav" href="{{ url_for('homepage') }}">Home</a>
+                <a class="btn-nav" href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a class="btn-nav" href="{{ url_for('ngo_dashboard') }}">NGO Dashboard</a>
+                <a class="btn-nav" href="{{ url_for('available_volunteers') }}">View Available Volunteers</a>
+                <a class="btn-nav" href="{{ url_for('add_volunteer') }}">Add Volunteer</a>
+                <a class="btn-nav" href="{{ url_for('functionalities') }}">View Functionalities</a>
+                <a class="btn-nav" href="{{ url_for('aboutus') }}">About Us</a>
+            </nav>
+        </div>
+    </nav>
+</header>
+<main class="main-content">
+    <table class="volunteer-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for volunteer in volunteers %}
+            <tr>
+                <td>{{ volunteer.name }}</td>
+                <td>{{ volunteer.location }}</td>
+                <td>{{ volunteer.phone_number }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('homepage') }}" class="back-link">Back to User Page</a>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2024 Danam. All rights reserved.</p>
+</footer>
+{% endblock %}

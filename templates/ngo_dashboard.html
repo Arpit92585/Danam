@@ -1,0 +1,420 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Dashboard</title>
+    <style>
+        /* General styles */
+body {
+    background-color: #f8fafc; /* light gray background */
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Header styles */
+.header {
+    background-color: #4CAF50; /* primary color */
+    color: white;
+    padding: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-button:hover {
+    color: #e0e0e0; /* secondary color on hover */
+}
+
+/* Main content styles */
+.main-content {
+    padding: 2rem;
+    height: 65vh;
+}
+
+.dashboard-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+/* Table styles */
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* round corners on overflow */
+}
+
+.request-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header {
+    background-color: #f1f5f9; /* light gray for header */
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+    color: #4A5568; /* dark gray */
+}
+
+.table-data {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0; /* light border */
+}
+
+.inline-form {
+    display: flex;
+    align-items: center;
+}
+
+.status-select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.status-select:focus {
+    border-color: #4CAF50; /* primary color on focus */
+}
+
+.update-button {
+    background-color: #4CAF50; /* primary color */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: #45a049; /* darker shade on hover */
+}
+
+/* Footer styles */
+.footer {
+    background-color: #4CAF50; /* primary color */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">NGO Dashboard</h1>
+            <nav>
+                <button class="nav-button" onclick="window.location.href='/'">Home</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <h2 class="dashboard-subtitle">User Requests</h2>
+
+       
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Danam. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danam NGO Portal</title>
+    <style>
+        /* Main content styles */
+.main-content {
+    padding: 2rem;
+    height: 65vh;
+}
+
+.dashboard-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+/* Table styles */
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* round corners on overflow */
+}
+
+.request-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header {
+    background-color: #f1f5f9; /* light gray for header */
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+    color: #4A5568; /* dark gray */
+}
+
+.table-data {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0; /* light border */
+}
+
+.inline-form {
+    display: flex;
+    align-items: center;
+}
+
+.status-select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.status-select:focus {
+    border-color: rgb(26, 0, 157); /* primary color on focus */
+}
+
+.update-button {
+    background-color: rgb(26, 0, 157); /* primary color */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: rgb(255, 255, 255); /* darker shade on hover */
+    border: 2px solid rgb(26, 0, 157);;
+    color: rgb(26, 0, 157);;
+    padding: 0.5rem 1rem;
+
+}
+.nav{
+    padding: 0px 20px;
+    transition: 0.3s;
+}
+.nav:hover{
+    padding: 12px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.517) ;
+
+}
+
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5450ab',
+                        secondary: '#c95228',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+    <header class="bg-primary text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Danam NGO Portal</h1>
+            <nav>
+                <a class="nav" href="{{ url_for('homepage') }}">Home</a>
+                    <a class="nav" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a class="nav" href="{{ url_for('ngo_dashboard') }}">NGO Dashboard</a>
+                    <a class="nav" href="{{ url_for('available_volunteers') }}">View Available Volunteers</a>
+                    <a class="nav" href="{{ url_for('add_volunteer') }}">Add Volunteer</a>
+                    <a class="nav" href="{{ url_for('functionalities') }}">View Functionalities</a>
+                    <a class="btn-nav" href="{{ url_for('aboutus') }}">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto p-4">
+        <h2 class="text-3xl font-bold mb-6 text-primary">Welcome, NGO Name</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-sm font-medium">Total Requests</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="text-2xl font-bold">1,234</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-sm font-medium">Donations Received</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
+                <div class="text-2xl font-bold">5,678</div>
+                <div class="text-sm text-gray-500">
+                    Food: 2,345 | Clothes: 1,567 | Aid: 987 | Books: 779
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-sm font-medium">Active Campaigns</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                </div>
+                <div class="text-2xl font-bold">12</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-sm font-medium">Locations Served</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="text-2xl font-bold">56</div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-semibold text-primary">User Requests</h3>
+                    <div>
+                        <input type="text" placeholder="Search requests..." class="px-4 py-2 border rounded-md mr-2">
+                        <button onclick="toggleView('list')" class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary mr-2">List View</button>
+                        <button onclick="toggleView('map')" class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary">Map View</button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="request-table">
+                        <thead>
+                            <tr>
+                                <th class="table-header">User</th>
+                                <th class="table-header">Request Type</th>
+                                <th class="table-header">Location</th>
+                                <th class="table-header">Status</th>
+                                <th class="table-header">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for request in requests %}
+                            <tr>
+                                <td class="table-data">{{ request.user }}</td>
+                                <td class="table-data">{{ request.request_type }}</td>
+                                <td class="table-data">{{ request.location }}</td>
+                                <td class="table-data">{{ request.status }}</td>
+                                <td class="table-data">
+                                    <form method="POST" class="inline-form">
+                                        <input type="hidden" name="request_id" value="{{ request.id }}">
+                                        <select name="new_status" class="status-select">
+                                            <option value="Pending" {% if request.status == 'Pending' %}selected{% endif %}>Pending</option>
+                                            <option value="Approved" {% if request.status == 'Approved' %}selected{% endif %}>Approved</option>
+                                            <option value="Rejected" {% if request.status == 'Rejected' %}selected{% endif %}>Rejected</option>
+                                        </select>
+                                        <button type="submit" class="update-button">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="map-view" class="hidden">
+                    <div id="map" class="w-full h-96 rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Danam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let map;
+        let markers = {};
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 0, lng: 0},
+                zoom: 2
+            });
+        }
+
+        function toggleView(view) {
+            if (view === 'list') {
+                document.getElementById('list-view').classList.remove('hidden');
+                document.getElementById('map-view').classList.add('hidden');
+            } else {
+                document.getElementById('list-view').classList.add('hidden');
+                document.getElementById('map-view').classList.remove('hidden');
+                if (!map) {
+                    initMap();
+                }
+            }
+        }
+
+        function handleApprove(userId) {
+            console.log(Approved request for user ${userId});
+            // Implement approval logic here
+        }
+
+        function watchLocation(userId, lat, lng) {
+            toggleView('map');
+            if (!markers[userId]) {
+                markers[userId] = new google.maps.Marker({
+                    position: {lat, lng},
+                    map: map,
+                    title: userId
+                });
+            }
+            map.setCenter({lat, lng});
+            map.setZoom(12);
+        }
+
+        // Initialize the map when the page loads
+        window.onload = initMap;
+    </script>
+</body>
+</html
