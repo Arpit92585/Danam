@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from forms import UserRequestForm, VolunteerForm  # Ensure VolunteerForm is imported

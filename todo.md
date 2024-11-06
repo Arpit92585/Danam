@@ -1,7 +1,3 @@
-# Danam Donation App
-
-![Landing Image](src/static/assets/images/readme-1.png)
-
 # TODO List for Donation Portal
 
 ## 1. Dashboards
@@ -46,18 +42,23 @@ Create three distinct dashboards with tailored features for:
 
 ## 2. Authentication
 
-- [ ] Create login and signup pages for each type of user (User, NGO, Volunteer).
-- [ ]Collect personal information for user profiles, with certificate verification for NGOs.
+- Create login and signup pages for each type of user (User, NGO, Volunteer).
+- Collect personal information for user profiles, with certificate verification for NGOs.
 
 ## 3. Dashboard Visuals
 
-- [ ]Add images of NGOs or people engaged in donation activities to each dashboard.
+- Add images of NGOs or people engaged in donation activities to each dashboard.
 
 ## 4. Dashboard Branding
 
-- [ ] Change the name "Danam" to its Hindi equivalent on all dashboards.
+- Change the name "Danam" to its Hindi equivalent on all dashboards.
 
 ## 5. Language Support (Optional)
 
-- [ ] Integrate a language translator feature to allow users to select their preferred language.
+- Integrate a language translator feature to allow users to select their preferred language.
+
+---
+
+This list serves as a guide for the implementation of features in the donation portal for all user
+types.
 
