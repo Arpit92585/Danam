@@ -8,7 +8,7 @@
 
 Create three distinct dashboards with tailored features for:
 
-- [ ] **User**
+- [x] **User**
 - [ ] **NGO**
 - [ ] **Volunteer**
 
