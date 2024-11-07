@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Make a Difference with Danam</h1>
+        <p>Your donations can change lives. Join us in our mission to help those in need.</p>
+        <a href="#" class="btn btn-primary">Donate Now</a>
+        <a href="#" class="btn btn-secondary">Learn More</a>
+    </div>
+</section>
+
+<section id="mission">
+    <div class="container">
+        <h2>Our Mission</h2>
+        <p>At Danam, we believe in the power of giving. Our mission is to connect donors with those in need,
+            making the process of donation simple, transparent, and impactful.</p>
+    </div>
+</section>
+<section>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Request Type</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                <tr>
+                    <td>{{ request.user }}</td>
+                    <td>{{ request.request_type }}</td>
+                    <td>{{ request.location }}</td>
+                    <td>{{ request.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<section id="categories" style="background-color: #f3f4f6;">
+    <div class="container">
+        <h2>Donation Categories</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a9 9 0 0 1 9 9c0 3.5-2 6.5-5 8l-4 4-4-4c-3-1.5-5-4.5-5-8a9 9 0 0 1 9-9Z" />
+                    </svg>
+                </div>
+                <h3>Food</h3>
+                <p>Help by donating food.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23Z" />
+                    </svg>
+                </div>
+                <h3>Clothing</h3>
+                <p>Donate clothes for a better tomorrow.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M7 12h10m1.66-7H5.34a2 2 0 0 0-2 2l-1 10a2 2 0 0 0 2 2h13.32a2 2 0 0 0 2-2l1-10a2 2 0 0 0-2-2Z" />
+                        <path d="m10 5 1 7m4-7-1 7" />
+                    </svg>
+                </div>
+                <h3>Medical Supplies</h3>
+                <p>Donate medicines and supplies.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,6 +1,7 @@
 Flask
-flask-sqlalchemy
-flask-wtf
-wtforms
+Flask-SQLAlchemy
+Flask-WTF
 Werkzeug
-flask_cors
+Flask-CORS
+Flask-Session
+Flask-Login

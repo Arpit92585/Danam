@@ -1,0 +1,14 @@
+.table-container {
+	padding: 25px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	border-top: 1px solid #eee;
+	font-size: 1.1rem;
+	color: #444;
+}
+
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+

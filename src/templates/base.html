@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">
+            <a href="/" class="logo">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="32" height="32" rx="16" fill="#5450ab" />
                     <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24"
@@ -28,92 +28,41 @@
                 <nav class="nav">
                     <a class="btn-nav" href="{{ url_for('homepage') }}">Home</a>
                     <a class="btn-nav" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a class="btn-nav" href="{{ url_for('aboutus') }}">About Us</a>
+                    <a class="btn-nav" href="/login">Login/Register</a>
+                </nav>
+            </div>
+        </nav>
+        {% if 5<0 %} <nav>
+            <div class="container">
+                <div class="nav">
+                    <a class="btn-nav" href="{{ url_for('homepage') }}">Home</a>
+                    <a class="btn-nav" href="{{ url_for('dashboard') }}">Dashboard</a>
                     <a class="btn-nav" href="{{ url_for('ngo_dashboard') }}">NGO Dashboard</a>
                     <a class="btn-nav" href="{{ url_for('available_volunteers') }}">View Available Volunteers</a>
                     <a class="btn-nav" href="{{ url_for('add_volunteer') }}">Add Volunteer</a>
                     <a class="btn-nav" href="{{ url_for('functionalities') }}">View Functionalities</a>
-                    <a class="btn-nav" href="{{ url_for('aboutus') }}">About Us</a>
-                </nav>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Make a Difference with Danam</h1>
-                <p>Your donations can change lives. Join us in our mission to help those in need.</p>
-                <a href="#" class="btn btn-primary">Donate Now</a>
-                <a href="#" class="btn btn-secondary">Learn More</a>
-            </div>
-        </section>
-
-        <section id="mission">
-            <div class="container">
-                <h2>Our Mission</h2>
-                <p>At Danam, we believe in the power of giving. Our mission is to connect donors with those in need,
-                    making the process of donation simple, transparent, and impactful.</p>
-            </div>
-        </section>
-
-        <main class="main-content">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li class="message-item">{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% endwith %}
-            <div class="content">
-                {% block content %}{% endblock %}
-            </div>
-        </main>
-
-        <section id="categories" style="background-color: #f3f4f6;">
-            <div class="container">
-                <h2>Donation Categories</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M12 2a9 9 0 0 1 9 9c0 3.5-2 6.5-5 8l-4 4-4-4c-3-1.5-5-4.5-5-8a9 9 0 0 1 9-9Z" />
-                            </svg>
-                        </div>
-                        <h3>Food</h3>
-                        <p>Help by donating food.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23Z" />
-                            </svg>
-                        </div>
-                        <h3>Clothing</h3>
-                        <p>Donate clothes for a better tomorrow.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M7 12h10m1.66-7H5.34a2 2 0 0 0-2 2l-1 10a2 2 0 0 0 2 2h13.32a2 2 0 0 0 2-2l1-10a2 2 0 0 0-2-2Z" />
-                                <path d="m10 5 1 7m4-7-1 7" />
-                            </svg>
-                        </div>
-                        <h3>Medical Supplies</h3>
-                        <p>Donate medicines and supplies.</p>
-                    </div>
+                    <a class="btn-nav" href="/login">Login/Register</a>
                 </div>
             </div>
-        </section>
-    </main>
+            </nav>
+            {% endif %}
 
+    </header>
+    <main class="main-content">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="message-item">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
     <footer>
         <div class="container">
             <p>&copy; 2024 Danam. All Rights Reserved.</p>
