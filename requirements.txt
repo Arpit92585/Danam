@@ -1,6 +1,0 @@
-Flask
-flask-sqlalchemy
-flask-wtf
-wtforms
-Werkzeug
-flask_cors

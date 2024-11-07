@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/aboutus.css')}}">
+{% endblock styles %}
+{% block content %}
+<header>
+    <div class="container" style="text-align: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            style="margin-bottom: 1rem;">
+            <polyline points="20 12 20 22 4 22 4 12"></polyline>
+            <rect x="2" y="7" width="20" height="5"></rect>
+            <line x1="12" y1="22" x2="12" y2="7"></line>
+            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+        </svg>
+        <h1>About Danam</h1>
+        <p class="subtitle">Connecting Generosity with Need: Empowering Communities Through Thoughtful Giving</p>
+    </div>
+</header>
+
+<main class="container">
+    <section class="welcome">
+        <h2 style="color: #5450ab;">Welcome to Danam</h2>
+        <p>Welcome to Danam, where your generosity finds its true calling. Whether you have clothes, books,
+            medicine, or other essentials, Danam allows you to contribute to various causes with ease. We believe in
+            the power of giving and the impact it can have on communities in need.</p>
+        <p>Our platform is designed to seamlessly connect you with numerous NGOs dedicated to making a difference.
+            By facilitating easy and meaningful donations, Danam helps bridge the gap between those who can give and
+            those who need support. Simply browse through our carefully curated list of trusted NGOs, choose the
+            ones that resonate with you, and donate items that can transform lives.</p>
+        <p>With Danam, every small act of kindness counts, turning compassion into action. Together, we can create a
+            brighter future for all.</p>
+        <p>Join us at Danam to foster hope, dignity, and empowerment through thoughtful contributions, and be part
+            of a community dedicated to creating a better world, one donation at a time.</p>
+    </section>
+
+    <div class="grid grid-2">
+        <section class="card">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                </svg>
+                Our Mission
+            </h2>
+            <p>Danam's mission is to bridge the gap between generous donors and deserving foundations through a
+                network of dedicated volunteers. We strive to make the process of donating clothes, books, and other
+                essentials as seamless and impactful as possible.</p>
+        </section>
+
+        <section class="card">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                Our Vision
+            </h2>
+            <p>We envision a world where every act of giving creates a ripple effect of positive change. By
+                connecting donors, volunteers, and foundations, we aim to build stronger communities and empower
+                those in need.</p>
+        </section>
+    </div>
+
+    <section>
+        <h2 style="color: #5450ab; display: flex; align-items: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="margin-right: 1rem;">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Our Staff
+        </h2>
+        <div class="grid grid-3">
+            <div class="card staff-card">
+                <img src="/placeholder.svg?height=48&width=48" alt="Jane Doe">
+                <div>
+                    <h3>Jane Doe</h3>
+                    <p>Team Member</p>
+                </div>
+            </div>
+            <div class="card staff-card">
+                <img src="/placeholder.svg?height=48&width=48" alt="John Smith">
+                <div>
+                    <h3>John Smith</h3>
+                    <p>Team Member</p>
+                </div>
+            </div>
+            <div class="card staff-card">
+                <img src="/placeholder.svg?height=48&width=48" alt="Alice Johnson">
+                <div>
+                    <h3>Alice Johnson</h3>
+                    <p>Team Member</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="grid grid-2">
+        <section class="card">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Registered Address
+            </h2>
+            <address>
+                Danam Foundation<br>
+                123 Charity Lane<br>
+                Giving City, GC 12345<br>
+                Country
+            </address>
+        </section>
+
+        <section class="card">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                How to Write to Us
+            </h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your@email.com">
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Your Phone Number">
+
+                <label for="comments">Comments</label>
+                <textarea id="comments" placeholder="Your message here"></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Danam. All rights reserved.</p>
+        <p>Empowering communities through thoughtful giving.</p>
+    </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+Flask-WTF
+Werkzeug
+Flask-CORS
+Flask-Session
+Flask-Login

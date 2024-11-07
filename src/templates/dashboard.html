@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .dashboard-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #5550abd5;
+    }
+
+    .dashboard-form {
+        background: #f9f9f9;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-input,
+    .form-select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+        border-color: #5550abd5;
+        outline: none;
+    }
+
+    .form-submit {
+        background: #5550abd5;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-submit:hover {
+        background: #45a049;
+    }
+</style>
+
+<h2 class="dashboard-title">Dashboard</h2>
+<form method="POST" class="dashboard-form">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.user.label(class="form-label") }}
+        {{ form.user(class="form-input", size=32) }}
+    </div>
+    <div class="form-group">
+        {{ form.request_type.label(class="form-label") }}
+        {{ form.request_type(class="form-select") }}
+    </div>
+    <div class="form-group">
+        {{ form.location.label(class="form-label") }}
+        {{ form.location(class="form-input", size=32) }}
+    </div>
+    <div class="form-group">
+        {{ form.status.label(class="form-label") }}
+        {{ form.status(class="form-select") }}
+    </div>
+    <div class="form-group">
+        {{ form.submit(class="form-submit") }}
+    </div>
+</form>
+{% endblock %}

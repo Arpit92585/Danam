@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danam - Make a Difference</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    {% block styles %}
+
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#5450ab" />
+                    <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24"
+                        stroke="white" stroke-width="2" />
+                    <path d="M16 24C13.7909 24 12 22.2091 12 20C12 17.7909 13.7909 16 16 16" stroke="white"
+                        stroke-width="2" />
+                </svg>
+                <span style="margin-left: 0.5rem;">Danam</span>
+            </a>
+            <div>
+                <nav class="nav">
+                    <a class="btn-nav" href="{{ url_for('homepage') }}">Home</a>
+                    <a class="btn-nav" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a class="btn-nav" href="{{ url_for('aboutus') }}">About Us</a>
+                    <a class="btn-nav" href="/login">Login/Register</a>
+                </nav>
+            </div>
+        </nav>
+        {% if 5<0 %} <nav>
+            <div class="container">
+                <div class="nav">
+                    <a class="btn-nav" href="{{ url_for('homepage') }}">Home</a>
+                    <a class="btn-nav" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a class="btn-nav" href="{{ url_for('ngo_dashboard') }}">NGO Dashboard</a>
+                    <a class="btn-nav" href="{{ url_for('available_volunteers') }}">View Available Volunteers</a>
+                    <a class="btn-nav" href="{{ url_for('add_volunteer') }}">Add Volunteer</a>
+                    <a class="btn-nav" href="{{ url_for('functionalities') }}">View Functionalities</a>
+                    <a class="btn-nav" href="/login">Login/Register</a>
+                </div>
+            </div>
+            </nav>
+            {% endif %}
+
+    </header>
+    <main class="main-content">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="message-item">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Danam. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
