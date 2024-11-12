@@ -170,10 +170,9 @@ def aboutus():
 
 def prompt_and_delete_folders():
     folders_to_delete = ['instance', '__pycache__']
-    response = input(f"\n\nDo you want to delete the folder instance and __pychace__ folder ( if they are present) ? (y/n): ")
+    print('\n')
     for folder in folders_to_delete:
         if os.path.exists(folder):
-            if response.lower() == 'y':
                 shutil.rmtree(folder, ignore_errors=True)
                 print(f"Deleted folder: {folder}")
 
