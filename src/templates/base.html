@@ -101,11 +101,27 @@
     <main class="main-content">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <ul class="messages">
+        <ul class="messages" id="flash-messages">
             {% for message in messages %}
             <li class="message-item">{{ message }}</li>
             {% endfor %}
         </ul>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const messages = document.querySelectorAll('#flash-messages .message-item');
+                if (messages.length > 0) {
+                    const latestMessage = messages[messages.length - 1];
+                    latestMessage.style.display = 'block';
+                    setTimeout(() => {
+                        latestMessage.style.transition = 'opacity 1s';
+                        latestMessage.style.opacity = '0';
+                        setTimeout(() => {
+                            latestMessage.style.display = 'none';
+                        }, 1000);
+                    }, 3000);
+                }
+            });
+        </script>
         {% endif %}
         {% endwith %}
         <div class="content">

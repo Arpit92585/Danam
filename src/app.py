@@ -61,7 +61,7 @@ def login():
     # if user already in session redirect to dashboard
     if 'user_name' in session:
         print(f'User already in session: {session["user_name"]}')
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('homepage'))
     
     if register_form.submit.data and register_form.validate_on_submit():
         print(f'Register button clicked data: {register_form.data}')
@@ -80,7 +80,7 @@ def login():
         session['user_name'] = new_user.name
         session['email'] = new_user.email
         flash('Registration successful. You are now logged in.', 'success')
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('homepage'))
     
     if login_form.submit.data and login_form.validate_on_submit():
         print(f'Login button clicked data: {login_form.data}')
@@ -92,7 +92,7 @@ def login():
             session['user_name'] = user.name
             session['email'] = user.email
             flash('Login successful.', 'success')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('homepage'))
         else:
             flash('Invalid email/username or password', 'danger')
     
@@ -129,7 +129,9 @@ def onboarding():
 # -------------------------------------------------------------------------------------------------
 
 # Route for User Dashboard
+
 @app.route('/dashboard', methods=['GET', 'POST'])
+@login_required
 def dashboard():
     form = UserRequestForm()
     if form.validate_on_submit():
@@ -137,7 +139,6 @@ def dashboard():
             user=form.user.data,
             request_type=form.request_type.data,
             location=form.location.data,
-            # status=form.status.data
         )
         db.session.add(new_request)
         db.session.commit()
