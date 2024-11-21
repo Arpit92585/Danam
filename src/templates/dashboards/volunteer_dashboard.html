@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+    
+{% block content %}
+    
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #5450AB;
+        }
+        
+        
+        main {
+            padding: 2rem;
+        }
+        .summary {
+            background-color: #EFCC73;
+            color: #5450AB;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+        .dashboard-container {
+            display: flex;
+            gap: 2rem;
+        }
+        .requests-container {
+            flex: 1;
+        }
+        .map-container {
+            flex: 1;
+            height: 400px;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #5450AB;
+            padding: 0.5rem;
+            text-align: left;
+        }
+        th {
+            background-color: #5450AB;
+            color: white;
+        }
+        td {
+            border: 1px solid #5450AB;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .accept, .decline, .view-map {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 0.5rem;
+        }
+        .accept {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .decline {
+            background-color: #f44336;
+            color: white;
+        }
+        .view-map {
+            background-color: #5450AB;
+            color: white;
+        }
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .accept, .decline, .view-map {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+<body>
+    <header>
+        <h1>Volunteer Dashboard</h1>
+    </header>
+    <main>
+        <section class="summary">
+            <h2>Total Donations Picked Up: <span id="totalDonations">15</span></h2>
+        </section>
+        <div class="dashboard-container">
+            <section class="requests-container">
+                <h2>Donation Requests</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Address</th>
+                            <th>Items to Donate</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>123 Main St, Anytown, USA</td>
+                            <td>Food, Clothes</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="accept" onclick="handleRequest(this, 'accept')">Accept</button>
+                                    <button class="decline" onclick="handleRequest(this, 'decline')">Decline</button>
+                                    <button class="view-map" onclick="showOnMap(40.7128, -74.0060)">View on Map</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>456 Elm St, Otherville, USA</td>
+                            <td>Books, Aid</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="accept" onclick="handleRequest(this, 'accept')">Accept</button>
+                                    <button class="decline" onclick="handleRequest(this, 'decline')">Decline</button>
+                                    <button class="view-map" onclick="showOnMap(34.0522, -118.2437)">View on Map</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bob Johnson</td>
+                            <td>789 Oak St, Somewhere, USA</td>
+                            <td>Clothes, Food</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="accept" onclick="handleRequest(this, 'accept')">Accept</button>
+                                    <button class="decline" onclick="handleRequest(this, 'decline')">Decline</button>
+                                    <button class="view-map" onclick="showOnMap(41.8781, -87.6298)">View on Map</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="map-container">
+                <h2>Donator Locations</h2>
+                <div id="map"></div>
+            </section>
+        </div>
+    </main>
+    <script>
+        let map;
+        let marker;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 40.7128, lng: -74.0060 },
+                zoom: 8
+            });
+        }
+
+        function showOnMap(lat, lng) {
+            const location = new google.maps.LatLng(lat, lng);
+            map.setCenter(location);
+            map.setZoom(15);
+
+            if (marker) {
+                marker.setMap(null);
+            }
+
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: 'Donator Location'
+            });
+        }
+
+        function handleRequest(button, action) {
+            const row = button.closest('tr');
+            if (action === 'accept') {
+                row.style.backgroundColor = '#e6ffe6';
+                const totalDonations = document.getElementById('totalDonations');
+                totalDonations.textContent = parseInt(totalDonations.textContent) + 1;
+            } else {
+                row.style.backgroundColor = '#ffe6e6';
+            }
+            row.querySelector('.accept').disabled = true;
+            row.querySelector('.decline').disabled = true;
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+
+{% endblock %}

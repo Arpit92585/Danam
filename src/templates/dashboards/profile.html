@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    h1, h2 {
+        color: #2c3e50;
+    }
+    .profile-info {
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .donation-history {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+<section class="profile-info">
+    <h2>User Information</h2>
+    <p><strong>Name:</strong>{{data.username}}</p>
+    <p><strong>Email:</strong> johndoe@example.com</p>
+    <p><strong>User Type:</strong> Donor</p>
+    <p><strong>Member Since:</strong> January 1, 2023</p>
+</section>
+<section class="donation-history">
+    <h2>Donation History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Item Type</th>
+                <th>Quantity</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023-05-15</td>
+                <td>Books</td>
+                <td>10</td>
+                <td>Delivered</td>
+            </tr>
+            <tr>
+                <td>2023-06-02</td>
+                <td>Clothes</td>
+                <td>5</td>
+                <td>In Transit</td>
+            </tr>
+            <tr>
+                <td>2023-06-20</td>
+                <td>Food</td>
+                <td>20</td>
+                <td>Pending</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock %}

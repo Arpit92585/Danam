@@ -5,81 +5,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
-    <title>Sign in & Sign up Form</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}" />
+    <title>Danam</title>
 </head>
 
 <body>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="{{ url_for('login') }}" method="POST" class="sign-in-form">
-                    {{ form.hidden_tag() }}
-                    <h2 class="title">Sign in</h2>
+                <form action="{{url_for('login')}}" method="POST" class="sign-up-form">
+                    <h2 class="title">Register</h2>
+                    {{ register_form.hidden_tag() }}
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        {{ form.email(class_="form-control", placeholder="Email") }}
-                        {% for error in form.email.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        {{ form.password(class_="form-control", placeholder="Password") }}
-                        {% for error in form.password.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
-                    </div>
-                    <input type="submit" value="Login" class="btn solid" />
-                    <p class="social-text">Or Sign in with social platforms</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </form>
-                <form action="{{ url_for('register') }}" method="POST" class="sign-up-form">
-                    {{ form.hidden_tag() }}
-                    <h2 class="title">Sign up</h2>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        {{ form.full_name(class_="form-control", placeholder="Full Name") }}
-                        {% for error in form.full_name.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
+                        {{ register_form.name(class_="register_form-input", placeholder="Name") }}
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        {{ form.email(class_="form-control", placeholder="Email") }}
-                        {% for error in form.email.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
+                        {{ register_form.email(class_="register_form-input", placeholder="Email") }}
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        {{ form.password(class_="form-control", placeholder="Password") }}
-                        {% for error in form.password.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
+                        {{ register_form.password(class_="register_form-input", placeholder="Password") }}
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        {{ form.confirm_password(class_="form-control", placeholder="Confirm Password") }}
-                        {% for error in form.confirm_password.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
+                        {{ register_form.confirm_password(class_="register_form-input", placeholder="Confirm Password")
+                        }}
                     </div>
-                    <input type="submit" class="btn" value="Sign up" />
-                    <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="input-field">
+                        <i class="fas fa-user-tag"></i>
+                        {{ register_form.user_type(class_="register_form-input multi-input") }}
+                    </div>
+                    <input type="submit" value="Register" class="btn solid" name="submit" />
+                    <!-- <p class="social-text">Or Sign up with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
@@ -93,8 +52,37 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                    </div>
+                    </div> -->
                 </form>
+                <form action="{{url_for('login')}}" method="POST" class="sign-in-form">
+                    <h2 class="title">Log in</h2>
+                    {{ login_form.hidden_tag() }}
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        {{ login_form.username_or_email(class_="form-input", placeholder="Username or Email") }}
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        {{ login_form.password(class_="login_form-input", placeholder="Password") }}
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" name="submit" />
+                    <!-- <p class="social-text">Or Sign in with social platlogin_forms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div> -->
+                </form>
+
             </div>
         </div>
 
@@ -110,7 +98,7 @@
                         Sign up
                     </button>
                 </div>
-                <img src="{{ url_for('static', filename='img/log.svg') }}" class="image" alt="" />
+                <img src="img/log.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -123,11 +111,12 @@
                         Sign in
                     </button>
                 </div>
-                <img src="{{ url_for('static', filename='img/register.svg') }}" class="image" alt="" />
+                <img src="img/register.svg" class="image" alt="" />
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+    <script src="{{url_for('static',filename='js/login.js')}}"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-{% extends 'rough.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <style>
@@ -141,29 +141,6 @@
     }
 </style>
 
-<header>
-    <nav class="container">
-        <a href="#" class="logo">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="16" fill="#ffffff"/>
-                <path d="M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24" stroke="#5550ab" stroke-width="2"/>
-                <path d="M16 24C13.7909 24 12 22.2091 12 20C12 17.7909 13.7909 16 16 16" stroke="#5550ab" stroke-width="2"/>
-            </svg>
-            <span style="margin-left: 0.5rem;">Danam</span>
-        </a>
-        <div>
-            <nav class="nav">
-                <a class="btn-nav" href="{{ url_for('homepage') }}">Home</a>
-                <a class="btn-nav" href="{{ url_for('dashboard') }}">Dashboard</a>
-                <a class="btn-nav" href="{{ url_for('ngo_dashboard') }}">NGO Dashboard</a>
-                <a class="btn-nav" href="{{ url_for('available_volunteers') }}">View Available Volunteers</a>
-                <a class="btn-nav" href="{{ url_for('add_volunteer') }}">Add Volunteer</a>
-                <a class="btn-nav" href="{{ url_for('functionalities') }}">View Functionalities</a>
-                <a class="btn-nav" href="{{ url_for('aboutus') }}">About Us</a>
-            </nav>
-        </div>
-    </nav>
-</header>
 
 <h1 class="add-volunteer-title">Add Volunteer</h1>
 
