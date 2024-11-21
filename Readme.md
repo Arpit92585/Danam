@@ -59,5 +59,5 @@ Create three distinct dashboards with tailored features for:
 
 ## 5. Language Support (Optional)
 
-- [ ] Integrate a language translator feature to allow users to select their preferred language.
+- [ ] Integrate a language translator feature to allow users to select their preferred language
 
