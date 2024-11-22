@@ -150,16 +150,16 @@ def dashboard():
 @login_required
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    form = UserRequestForm()
     user = User.query.filter_by(email=session['email']).first()
-    return render_template('dashboards/profile.html')
+    return render_template('dashboards/profile.html', user=user)
 
     # return render_template('dashboards/profile.html', form=form, user=user, user_requests=user_requests, user_donations=user_donations)
 # Route for NGO Dashboard
 @app.route('/ngo_dashboard', methods=['GET', 'POST'])
 def ngo_dashboard():
     requests = UserRequest.query.all()
-    
+    #pass usertable from request db to get NGO name
+    user=User.query.filter_by(email=session['email']).first()
     if request.method == 'POST':
         request_id = request.form.get('request_id')
         new_status = request.form.get('new_status')
@@ -170,7 +170,7 @@ def ngo_dashboard():
             flash('Status updated successfully!', 'success')
             return redirect(url_for('ngo_dashboard'))
 
-    return render_template('dashboards/ngo_dashboard.html', requests=requests)
+    return render_template('dashboards/ngo_dashboard.html', requests=requests, user=user)
 
 @app.route('/volunteer_dashboard')
 def volunteer_dashboard():

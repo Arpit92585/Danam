@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danam - Make a Difference</title>
+    <title>Dãnam - Make a Difference</title>
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
     <link rel="shortcut icon" href="{{url_for('static',filename='assets/favicon/favicon.ico')}}" type="image/x-icon">
     {% block styles %}
@@ -48,8 +48,8 @@
     <header>
         <nav class="container">
             <a href="/" class="logo">
-                <img src="{{url_for('static',filename='assets/images/logo.svg')}}" alt="Danam" style="width: 2rem;">
-                <span style="margin-left: 0.5rem;">Danam</span>
+                <img src="{{url_for('static',filename='assets/images/logo.svg')}}" alt="Dãnam" style="width: 2rem;">
+                <span style="margin-left: 0.5rem;">Dãnam</span>
             </a>
             <div>
                 <nav id="landing_nav" class="nav">
@@ -63,7 +63,12 @@
                     <div class="nav">
                         <a class="btn-nav" href="{{ url_for('homepage') }}">Home</a>
                         <a class="btn-nav" href="{{ url_for('dashboard') }}">Dashboard</a>
-                        <a class="btn-nav" href="/">Profile</a>
+                        <a class="btn-nav" href="{{ url_for('profile') }}" style="display: contents;">
+                            <div class="btn-nav profile">
+                                <img id="profile-pic" src="{{url_for('static', filename='assets/images/profile_def_m.png')}}" alt="Profile Picture" style="width: 2rem;">
+                                <span id="username"></span>
+                            </div> 
+                        </a>
                         <a class="btn-nav" href="/logout">Logout</a>
                     </div>
                 </div>
@@ -76,6 +81,12 @@
                         <a class="btn-nav" href="{{ url_for('available_volunteers') }}">View Available Volunteers</a>
                         <a class="btn-nav" href="{{ url_for('add_volunteer') }}">Add Volunteer</a>
                         <a class="btn-nav" href="{{ url_for('functionalities') }}">View Functionalities</a>
+                        <a class="btn-nav" href="{{ url_for('profile') }}" style="display: contents;">
+                            <div class="btn-nav profile">
+                                <img id="profile-pic" src="{{url_for('static', filename='assets/images/profile_def_m.png')}}" alt="Profile Picture" style="width: 2rem;">
+                                <span id="username"></span>
+                            </div> 
+                        </a>
                         <a class="btn-nav" href="/logout">Logout</a>
                     </div>
                 </div>
@@ -130,7 +141,7 @@
     </main>
     <footer>
         <div class="container">
-            <p>&copy; 2024 Danam. All Rights Reserved.</p>
+            <p>&copy; 2024 Dãnam. All Rights Reserved.</p>
         </div>
     </footer>
 </body>

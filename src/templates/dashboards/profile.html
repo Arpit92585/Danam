@@ -38,10 +38,9 @@
 </style>
 <section class="profile-info">
     <h2>User Information</h2>
-    <p><strong>Name:</strong>{{data.username}}</p>
-    <p><strong>Email:</strong> johndoe@example.com</p>
-    <p><strong>User Type:</strong> Donor</p>
-    <p><strong>Member Since:</strong> January 1, 2023</p>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>User Type:</strong> {{ user.role }}</p>
 </section>
 <section class="donation-history">
     <h2>Donation History</h2>
