@@ -253,7 +253,7 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
         
-    atexit.register(prompt_and_delete_folders)
+    #atexit.register(prompt_and_delete_folders)
 
     # app.run(host='192.168.29.235')
     app.run(debug=True)
