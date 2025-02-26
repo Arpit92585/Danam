@@ -5,3 +5,5 @@ Werkzeug
 Flask-CORS
 Flask-Session
 Flask-Login
+flask_restful
+faker

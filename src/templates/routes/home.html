@@ -5,9 +5,9 @@
 {% block content %}
 <section class="hero">
     <div class="container">
-        <h1>Make a Difference with Danam</h1>
+        <h1>Make a Difference with Dãnam</h1>
         <p>Your donations can change lives. Join us in our mission to help those in need.</p>
-        <a href="#" class="btn btn-primary">Donate Now</a>
+        <a href="#" id="donate-now-btn" class="btn btn-primary">Donate Now</a>
         <a href="#" class="btn btn-secondary">Learn More</a>
     </div>
 </section>
@@ -15,32 +15,12 @@
 <section id="mission">
     <div class="container">
         <h2>Our Mission</h2>
-        <p>At Danam, we believe in the power of giving. Our mission is to connect donors with those in need,
+        <p>At Dãnam, we believe in the power of giving. Our mission is to connect donors with those in need,
             making the process of donation simple, transparent, and impactful.</p>
-    </div>
-</section>
-<section>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Request Type</th>
-                    <th>Location</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for request in requests %}
-                <tr>
-                    <td>{{ request.user }}</td>
-                    <td>{{ request.request_type }}</td>
-                    <td>{{ request.location }}</td>
-                    <td>{{ request.status }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <p>We strive to ensure that every donation reaches its intended recipient and makes a tangible difference in
+            their lives.
+        </p>
+
     </div>
 </section>
 
@@ -85,5 +65,27 @@
         </div>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/api/login_status')
+            .then(response => response.json())
+            .then(data => {
+                const donateNowBtn = document.getElementById('donate-now-btn');
+                if (data.status == "logged_in") {
+                    if (data.role == "Donor") {
+                        donateNowBtn.href = "{{ url_for('dashboard') }}";
+                    } else if (data.role == "NGO") {
+                        donateNowBtn.innerHTML = "Get Started";
+                        donateNowBtn.href = "{{ url_for('ngo_dashboard') }}";
+                    } else if (data.role == "Volunteer") {
+                        donateNowBtn.innerHTML = "Get Started";
+                        donateNowBtn.href = "{{ url_for('volunteer_dashboard') }}";
+                    }
+                } else {
+                    donateNowBtn.href = "/login";
+                }
+            });
+    });
+</script>
 
 {% endblock content %}

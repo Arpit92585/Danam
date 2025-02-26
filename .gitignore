@@ -4,3 +4,4 @@ venv
 .env
 uploads
 zips
+.DS_STORE

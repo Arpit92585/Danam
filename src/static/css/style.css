@@ -12,6 +12,15 @@ body {
 	background-color: var(--background);
 	color: var(--text);
 }
+
+.profile{
+	display: inline-flex;
+	gap:1rem;
+	justify-content: center;
+	align-items: center;
+}
+
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -145,6 +154,8 @@ footer {
 .messages {
 	list-style-type: none;
 	margin-bottom: 1.5rem;
+	position:absolute;
+	z-index: 100;
 }
 
 .message-item {
@@ -155,5 +166,7 @@ footer {
 	margin-bottom: 0.5rem;
 	border-radius: 4px;
 	width: fit-content;
+    opacity: 1;
+    transition: opacity 1s;
 }
 
