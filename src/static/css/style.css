@@ -48,12 +48,16 @@ nav a {
 	font-size: 1.5rem;
 	color: var(--primary);
 }
+
 .hero {
-	background-color: var(--primary);
-	color: var(--accent);
-	text-align: center;
-	padding: 4rem 1rem;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("../assets/images/child smiling.jpg") 0 50%;
+    background-repeat: no-repeat;
+    color: var(--accent);
+    text-align: center;
+    padding: 4rem 1rem;
+    background-size: cover;
 }
+
 .hero h1 {
 	font-size: 2.5rem;
 	margin-bottom: 1rem;
@@ -64,19 +68,20 @@ nav a {
 }
 .btn {
 	display: inline-block;
-	padding: 0.5rem 1rem;
-	border-radius: 0.25rem;
+	padding: 0.75rem 1.5rem;
+	border-radius: 50px;
 	text-decoration: none;
-	font-weight: bold;
+	font-weight:bold;
+	border:none;
+	cursor:pointer;
 }
 .btn-primary {
-	background-color: var(--accent);
-	color: var(--primary);
+	background-color:#ffd700;
+    color: #3f3b8c;
 }
 .btn-secondary {
-	background-color: transparent;
-	color: var(--accent);
-	border: 2px solid var(--accent);
+	background-color:#ffd700;
+    color: #3f3b8c;
 }
 section {
 	padding: 4rem 1rem;
